@@ -1,0 +1,10 @@
+{
+  "name": "d3-arduino-thermometer",
+  "version": "0.0.1",
+  "description": "interface with arduino over serial and graph with D3.js",
+  "author": "minizatic",
+  "dependencies": {
+    "serialport": "1.4.x",
+    "socket.io": "1.x"
+  }
+}
