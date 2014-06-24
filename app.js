@@ -7,7 +7,7 @@ var http = require("http"),
 var sp = require("serialport");
 
 var SerialPort = sp.SerialPort;
-var port = new SerialPort("/dev/ttyUSB1", {
+var port = new SerialPort("/dev/ttyUSB0", {
   baudrate: 9600,
   parser: sp.parsers.readline("\n")
 });

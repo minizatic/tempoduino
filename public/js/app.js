@@ -20,11 +20,25 @@ var yScale = d3.scale.linear()
 	.domain([0, 200])
 	.rangeRound([0, height]);
 
+var colorScale = d3.scale.linear()
+	.domain([0, 200])
+	.range(["#0D0080", "#FF0000"]);
+
+svg
+	.append("text")
+		.attr("x", 50)
+		.attr("y", 50)
+		.attr("font-size", 24)
+
 socket.on('data', function (data) {
 	if(index >= width/barWidth){
 		svg.selectAll("rect").remove();
 		index=0;
 	}
+	svg
+	.select("text")
+		.text(data.temp);
+
 	svg
 	.append("rect")
 		.attr("height", yScale(data.temp))
@@ -34,5 +48,5 @@ socket.on('data', function (data) {
 			return xScale(index);
 		})
 		.attr("width", barWidth)
-		.style("fill", "teal");
+		.style("fill", colorScale(data.temp));
 });
